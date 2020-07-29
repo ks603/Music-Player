@@ -72,13 +72,24 @@ let songIndex = 0
 
 //  Next Song
 const nextSong = () => {
+  // to reset songs back at 0 index
+  if (songIndex >= 3) {
+    songIndex = -1
+  }
   songIndex++
   loadSong(songs[songIndex])
+  playSong()
 }
 
+// Prev Song
 const prevSong = () => {
+  console.log(songIndex)
+  if (songIndex <= 0) {
+    songIndex = 4
+  }
   songIndex--
   loadSong(songs[songIndex])
+  playSong()
 }
 
 // On Load - Select first song
